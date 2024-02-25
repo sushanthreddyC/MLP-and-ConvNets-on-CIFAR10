@@ -14,11 +14,16 @@ python3.11 -m pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --i
 
 python3.11 -m pip install -r ./requirements.txt
 
-
+# Custom fixes
 python3.11 -m pip install -U Pillow
+python3.11 -m pip install jupyter notebook
+python3.11 -m pip uninstall -y ipython prompt_toolkit
+python3.11 -m pip install ipython prompt_toolkit
+python3.11 -m pip install --upgrade psutil
+
 
 python3.11 -m pip install mmengine==0.10.3
-# test it
+
 python3.11 -c 'from mmengine.utils.dl_utils import collect_env;print(collect_env())'
 
 
@@ -111,3 +116,8 @@ https://download.openmmlab.com/mmpose/animal/hrnet/hrnet_w32_animalpose_256x256-
 --input tests/data/animalpose/ca110.jpeg \
 --show --draw-heatmap --det-cat-id=15 \
 --device cuda:0
+
+cd ..
+cd ..
+cd ..
+jupyter notebook
