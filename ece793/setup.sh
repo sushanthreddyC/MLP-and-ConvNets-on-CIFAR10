@@ -8,7 +8,7 @@ sudo apt update
 
 sudo apt install python3.11 -y
 
-sudo apt install pip3 -y
+sudo apt install python3-pip -y
 
 python3.11 -m pip install torch==2.1.2 torchvision==0.16.2 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118
 
