@@ -1,5 +1,5 @@
 export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
-
+export PATH=~/.local/bin${PATH:+:${PATH}}
 sudo apt update
 
 sudo add-apt-repository ppa:deadsnakes/ppa -y
