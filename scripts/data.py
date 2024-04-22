@@ -29,7 +29,7 @@ DATA_STD = [0.247, 0.243, 0.261]
 data_transforms = transforms.Compose([transforms.ToTensor(),
                                       transforms.Normalize(DATA_MEANS, DATA_STD)
                                      ])
-
+seed = 42
 # classes
 classes = (
     "plane",
@@ -43,3 +43,13 @@ classes = (
     "ship",
     "truck"
 )
+
+device = (
+        torch.device("cpu") if not torch.cuda.is_available() else torch.device("cuda:0")
+    )
+print("Using device", device)
+
+main_dataset = CIFAR10(root=DATASET_PATH, train=True, transform=data_transforms, download=True)
+# Loading the test set
+test_set = CIFAR10(root=DATASET_PATH, train=False, transform=data_transforms, download=True)
+test_loader = data.DataLoader(test_set, batch_size=128, shuffle=False, drop_last=False, num_workers= os.cpu_count())
