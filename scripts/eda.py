@@ -62,6 +62,7 @@ def loading_batch_time(train_loader):
     images, labels = next(dataiter)
     end_time = time.time()
     print(f"Time for loading a batch: {(end_time - start_time):6.5f}s")
+    return images, labels
 
 def imshow(img):
     img = img.div_(INV_DATA_STD).sub_(INV_DATA_MEANS) # unnormalize
@@ -95,6 +96,6 @@ def main():
     # val_loader = data.DataLoader(val_set, batch_size=128, shuffle=False, drop_last=False, num_workers= os.cpu_count())
     # test_loader = data.DataLoader(test_set, batch_size=128, shuffle=False, drop_last=False, num_workers= os.cpu_count())
 
-    loading_batch_time(train_loader)
+    images, labels = loading_batch_time(train_loader)
     imshow(torchvision.utils.make_grid(images))
     print("GroundTruth (1st row): ", " ".join(f"{classes[labels[j]]:5s}" for j in range(8)))
